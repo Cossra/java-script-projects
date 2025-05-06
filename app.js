@@ -49,6 +49,77 @@ function isLeap(year) {
   }
 }
 
+//Guest list name verifier
+
+var guestName = prompt("What is your name?");
+var guestList = ["bobby", "adam", "joseph", "drew"];
+
+if (guestList.includes(guestName)) {
+    alert("Welcome!");
+} else {
+    alert("Sorry, maybe next time.");
+}
+
+//FizzBuzz Game 
+
+var output = [];
+var count = 1;
+
+function fizzBuzz() {
+
+    while (count <= 100) {
+
+    if (count % 3 === 0 && count % 5 === 0) {
+        output.push("FizzBuzz");
+    } 
+    else if (count % 3 === 0) {
+        output.push("Fizz");
+    } 
+    else if (count % 5 === 0) {
+        output.push("Buzz");
+    }
+    else {
+        output.push(count);
+    }
+    
+    count++;
+    }
+    console.log(output);
+}
+
+// Who's Buying Lunch? A function which will select a random name from a list of names. 
+//The person selected will have to pay for everybody's food bill.
+
+function whosPaying(names) {
+    
+    const numberOfPeople =  names.length;
+    const randomPersonSelector = Math.floor(Math.random() * numberOfPeople);
+    const randomPerson = names[randomPersonSelector];
+    return randomPerson + " is going to buy lunch today!"
+
+}
 
 
+// 99 bottles of beer on the wall game!
+
+var onWall = [];
+var beers = 1;
+
+function beersOnTheWall() {
+
+    while (beers < 100) {
+    
+    if (beers < 99) 
+    {
+    console.log(beers + " Bottles of beer on the wall, " + beers + " bottles of beer, take one down pass it around, " + beers + " bottles of beer on the wall.");
+    } 
+    else if (beers === 99) 
+    {
+    console.log("No more Bottles of beer on the wall, no more bottles of beer, go to the store and buy some more, " + beers + " bottles of beer on the wall.");
+    }
+    
+    beers++;
+    onWall.push(beers);
+    }
+}
 
