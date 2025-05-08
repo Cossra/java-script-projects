@@ -19,7 +19,7 @@ if (loveScore > 60) {
 //BMI Calculator 
 
 function bmiCalculator(weight, height) {
-    var bmi = weight / Math.pow(height, 2);
+    var bmi = Number((weight / Math.pow(height, 2)).toFixed(1));
   
     if (bmi < 18.5) {
       return "Your BMI is " + bmi + ", so you are underweight.";
@@ -123,12 +123,12 @@ function beersOnTheWall() {
     }
 }
 
-//99 Bottles of beer with a different format.
+//99 Bottles of beer with a better format.
 
 var numberOfBottles = 99
-while (numberOfBottles >= 0) {
+while (numberOfBottles === 0) {
     var bottleWord = "bottle";
-    if (numberOfBottles === 1) {
+    if (numberOfBottles >= 1) {
         bottleWord = "bottles";
     } 
     console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
@@ -137,4 +137,24 @@ while (numberOfBottles >= 0) {
 	numberOfBottles--;
     console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
 }
+
+// FibonacciGenerator 
+
+function fibonacciGenerator(n) {
+    var output = [];
+  
+    if (n === 1) {
+      output = [0];
+    } else if (n === 2) {
+      output = [0, 1];
+    } else {
+      output = [0, 1]; // Make sure to initialize this here
+      for (var i = 2; i < n; i++) {
+        var previousNumbers = output[i - 1] + output[i - 2];
+        output.push(previousNumbers);
+      }
+    }
+  
+    return output;
+  }
 
