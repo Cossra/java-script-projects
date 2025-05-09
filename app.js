@@ -30,6 +30,39 @@ function bmiCalculator(weight, height) {
     }
   }
 
+  //Advanced BMI calculator using promps & alerts 
+
+  function bmiCalculator() {
+    const heightInput = prompt("Enter your height in feet and inches (e.g., 5'9):");
+    const weightInput = prompt("Enter your weight in pounds:");
+
+    // To match height format like 5'9 or 6'0
+    const match = heightInput.match(/(\d+)'(\d+)/);
+
+    if (!match) {
+        alert("Invalid height format. Please use format like 5'9.");
+        return;
+    }
+
+    const feet = parseInt(match[1]);
+    const inches = parseInt(match[2]);
+    const totalInches = (feet * 12) + inches;
+    const heightMeters = totalInches * 0.0254;
+
+    const weightPounds = parseFloat(weightInput);
+    const weightKg = weightPounds * 0.453592;
+
+    const bmi = (weightKg / (heightMeters ** 2)).toFixed(2);
+
+    if (bmi < 18.5) {
+        alert("Your BMI is " + bmi + ", so you are underweight.");
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+        alert("Your BMI is " + bmi + ", so you have a normal weight.");
+    } else {
+        alert("Your BMI is " + bmi + ", so you are overweight.");
+    }
+}
+
 // Leap year calculator 
 
 function isLeap(year) {
