@@ -158,3 +158,18 @@ function fibonacciGenerator(n) {
     return output;
   }
 
+  // Dice Roller Simulator with Loop 🎲
+
+function rollDice() {
+    var dice1 = Math.floor(Math.random() * 6) + 1;
+    var dice2 = Math.floor(Math.random() * 6) + 1;
+    var total = dice1 + dice2;
+
+    return "You rolled a " + dice1 + " and a " + dice2 + ". Total: " + total;
+}
+
+// Loop to roll the dice 10 times
+for (var i = 1; i <= 10; i++) {
+    console.log("Roll " + i + ": " + rollDice());
+}
+
