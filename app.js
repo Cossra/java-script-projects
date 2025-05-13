@@ -1,3 +1,26 @@
+//Higher Order Function Example:
+function add(num1, num2) {
+    return num1 + num2;
+    }
+     
+    function subtract(num1, num2) {
+    return num1 - num2;
+    }
+     
+    function multiply(num1, num2) {
+    return num1 * num2;
+    }
+     
+    function divide(num1, num2) {
+    return num1 / num2;
+    }
+     
+    function calculator(num1, num2, operator) {
+    return operator(num1, num2);
+    }
+
+
+
 //Dog to Human age calculator, promp/alert.
 var dogAge = prompt("How old is your dog?");
 var humanAge = ((dogAge - 2) * 4) + 21;
