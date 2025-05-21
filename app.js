@@ -1,24 +1,57 @@
 //Higher Order Function Example:
 function add(num1, num2) {
     return num1 + num2;
-    }
-     
-    function subtract(num1, num2) {
-    return num1 - num2;
-    }
-     
-    function multiply(num1, num2) {
-    return num1 * num2;
-    }
-     
-    function divide(num1, num2) {
-    return num1 / num2;
-    }
-     
-    function calculator(num1, num2, operator) {
-    return operator(num1, num2);
-    }
+}
 
+function subtract(num1, num2) {
+    return num1 - num2;
+}
+
+function multiply(num1, num2) {
+    return num1 * num2;
+}
+
+function divide(num1, num2) {
+    return num1 / num2;
+}
+
+function calculator(num1, num2, operator) {
+    return operator(num1, num2);
+}
+
+// LeetCode-style: Roman to Integer - Easy
+// Convert a Roman numeral string to an integer
+
+function romanToInt(s) {
+    const map = {
+        I: 1, V: 5, X: 10, L: 50,
+        C: 100, D: 500, M: 1000
+    };
+    let total = 0;
+    for (let i = 0; i < s.length; i++) {
+        const current = map[s[i]];
+        const next = map[s[i + 1]];
+        if (current < next) {
+            total += next - current;
+            i++;
+        } else {
+            total += current;
+        }
+    }
+    return total;
+}
+
+// LeetCode-style: Reverse String - Easy
+// Reverse an array of characters in-place.
+
+function reverseString(s) {
+    let left = 0, right = s.length - 1;
+    while (left < right) {
+        [s[left], s[right]] = [s[right], s[left]];
+        left++;
+        right--;
+    }
+}
 
 
 //Dog to Human age calculator, promp/alert.
@@ -43,19 +76,19 @@ if (loveScore > 60) {
 
 function bmiCalculator(weight, height) {
     var bmi = Number((weight / Math.pow(height, 2)).toFixed(1));
-  
+
     if (bmi < 18.5) {
-      return "Your BMI is " + bmi + ", so you are underweight.";
+        return "Your BMI is " + bmi + ", so you are underweight.";
     } else if (bmi >= 18.5 && bmi <= 24.9) {
-      return "Your BMI is " + bmi + ", so you have a normal weight.";
+        return "Your BMI is " + bmi + ", so you have a normal weight.";
     } else if (bmi > 24.9) {
-      return "Your BMI is " + bmi + ", so you are overweight.";
+        return "Your BMI is " + bmi + ", so you are overweight.";
     }
-  }
+}
 
-  //Advanced BMI calculator using promps & alerts 
+//Advanced BMI calculator using promps & alerts 
 
-  function bmiCalculator() {
+function bmiCalculator() {
     const heightInput = prompt("Enter your height in feet and inches (e.g., 5'9):");
     const weightInput = prompt("Enter your weight in pounds:");
 
@@ -90,19 +123,19 @@ function bmiCalculator(weight, height) {
 
 function isLeap(year) {
 
-  if (year % 4 === 0) {
-      if (year % 100 === 0) {
-          if (year % 400 === 0) {
-              return "Leap year."
-          } else {
-              return "Not leap year."
-          }
-      } else {
-          return "Leap year."
-      }
-  } else {
-      return "Not leap year."
-  }
+    if (year % 4 === 0) {
+        if (year % 100 === 0) {
+            if (year % 400 === 0) {
+                return "Leap year."
+            } else {
+                return "Not leap year."
+            }
+        } else {
+            return "Leap year."
+        }
+    } else {
+        return "Not leap year."
+    }
 }
 
 //Guest list name verifier
@@ -125,20 +158,20 @@ function fizzBuzz() {
 
     while (count <= 100) {
 
-    if (count % 3 === 0 && count % 5 === 0) {
-        output.push("FizzBuzz");
-    } 
-    else if (count % 3 === 0) {
-        output.push("Fizz");
-    } 
-    else if (count % 5 === 0) {
-        output.push("Buzz");
-    }
-    else {
-        output.push(count);
-    }
-    
-    count++;
+        if (count % 3 === 0 && count % 5 === 0) {
+            output.push("FizzBuzz");
+        }
+        else if (count % 3 === 0) {
+            output.push("Fizz");
+        }
+        else if (count % 5 === 0) {
+            output.push("Buzz");
+        }
+        else {
+            output.push(count);
+        }
+
+        count++;
     }
     console.log(output);
 }
@@ -147,8 +180,8 @@ function fizzBuzz() {
 //The person selected will have to pay for everybody's food bill.
 
 function whosPaying(names) {
-    
-    const numberOfPeople =  names.length;
+
+    const numberOfPeople = names.length;
     const randomPersonSelector = Math.floor(Math.random() * numberOfPeople);
     const randomPerson = names[randomPersonSelector];
     return randomPerson + " is going to buy lunch today!"
@@ -164,18 +197,16 @@ var beers = 1;
 function beersOnTheWall() {
 
     while (beers < 100) {
-    
-    if (beers < 99) 
-    {
-    console.log(beers + " Bottles of beer on the wall, " + beers + " bottles of beer, take one down pass it around, " + beers + " bottles of beer on the wall.");
-    } 
-    else if (beers === 99) 
-    {
-    console.log("No more Bottles of beer on the wall, no more bottles of beer, go to the store and buy some more, " + beers + " bottles of beer on the wall.");
-    }
-    
-    beers++;
-    onWall.push(beers);
+
+        if (beers < 99) {
+            console.log(beers + " Bottles of beer on the wall, " + beers + " bottles of beer, take one down pass it around, " + beers + " bottles of beer on the wall.");
+        }
+        else if (beers === 99) {
+            console.log("No more Bottles of beer on the wall, no more bottles of beer, go to the store and buy some more, " + beers + " bottles of beer on the wall.");
+        }
+
+        beers++;
+        onWall.push(beers);
     }
 }
 
@@ -186,11 +217,11 @@ while (numberOfBottles === 0) {
     var bottleWord = "bottle";
     if (numberOfBottles >= 1) {
         bottleWord = "bottles";
-    } 
+    }
     console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
     console.log(numberOfBottles + " " + bottleWord + " of beer,");
     console.log("Take one down, pass it around,");
-	numberOfBottles--;
+    numberOfBottles--;
     console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
 }
 
@@ -198,23 +229,23 @@ while (numberOfBottles === 0) {
 
 function fibonacciGenerator(n) {
     var output = [];
-  
-    if (n === 1) {
-      output = [0];
-    } else if (n === 2) {
-      output = [0, 1];
-    } else {
-      output = [0, 1]; // Make sure to initialize this here
-      for (var i = 2; i < n; i++) {
-        var previousNumbers = output[i - 1] + output[i - 2];
-        output.push(previousNumbers);
-      }
-    }
-  
-    return output;
-  }
 
-  // Dice Roller Simulator with Loop 🎲
+    if (n === 1) {
+        output = [0];
+    } else if (n === 2) {
+        output = [0, 1];
+    } else {
+        output = [0, 1]; // Make sure to initialize this here
+        for (var i = 2; i < n; i++) {
+            var previousNumbers = output[i - 1] + output[i - 2];
+            output.push(previousNumbers);
+        }
+    }
+
+    return output;
+}
+
+// Dice Roller Simulator with Loop 🎲
 
 function rollDice() {
     var dice1 = Math.floor(Math.random() * 6) + 1;
@@ -227,5 +258,26 @@ function rollDice() {
 // Loop to roll the dice 10 times
 for (var i = 1; i <= 10; i++) {
     console.log("Roll " + i + ": " + rollDice());
+}
+
+
+//Constructor Function Objects practice 
+function HouseKeeper1(name, yearsOfExperience, age, hasWorkPermit, languages) {
+    this.name = name;
+    this.yearsOfExperience = yearsOfExperience;
+    this.age = age;
+    this.hasWorkPermit = hasWorkPermit;
+    this.languages = languages;
+    this.clean = function () {
+        alert("Cleaning in progress...");
+    }
+}
+
+var houseKeeper1 = new HouseKeeper("Amanda", 2, 21, true, ["Spanish", "English"]);
+
+
+//Methods
+function() {
+    alert("Cleaning in progress...");
 }
 
