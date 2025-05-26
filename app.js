@@ -41,6 +41,30 @@ function romanToInt(s) {
     return total;
 }
 
+// Takes a string containing brackets like "({[]})" and returns whether it's valid
+
+function isValidBrackets(s) {
+    const stack = [];
+    const map = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    };
+
+    for (let char of s) {
+        if (map[char]) {
+            stack.push(map[char]);
+        } else if (char === ')' || char === '}' || char === ']') {
+            if (stack.pop() !== char) return false;
+        }
+    }
+
+    return stack.length === 0;
+}
+
+module.exports = isValidBrackets;
+
+
 // LeetCode-style: Reverse String - Easy
 // Reverse an array of characters in-place.
 
