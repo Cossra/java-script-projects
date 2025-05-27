@@ -1,3 +1,56 @@
+
+
+function twoSum(nums, target) {
+    let numberToIndex = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        let complement = target - nums[i];
+        if (numberToIndex.hasOwnProperty(complement)) {
+            return [numberToIndex[complement], i];
+        }
+        numberToIndex[nums[i]] = i;
+    }
+
+    return []; // Return empty array if no solution is found
+}
+/*
+✅ First Function (Single-Pass)
+- Efficiency: One loop — faster in practice.
+- Approach: Build the map while checking for complements.
+- Use case: Best for interviews or when performance matters.(maybe)
+*/
+
+// alternate function (with logic correction and explanation below)
+
+function twoSumAlt(nums, target) {
+    const numberToIndex = {};
+
+    // First pass: store all numbers and their indices
+    for (let i = 0; i < nums.length; i++) {
+        numberToIndex[nums[i]] = i;
+    }
+
+    // Second pass: look for complement
+    for (let i = 0; i < nums.length; i++) {
+        let complement = target - nums[i];
+        if (numberToIndex[complement] !== undefined && numberToIndex[complement] !== i) {
+            return [i, numberToIndex[complement]];
+        }
+    }
+
+    return []; // Return empty array if no solution is found
+}
+/*
+  ✅ Second function (Two-pass hash map):
+- Slightly more readable for beginners — logic is split into two steps
+- First stores all values, then checks complements
+- Also O(n) time and O(n) space, but with two passes instead of one
+- Slightly less efficient, but still correct and clean
+- ✅ Shows a more concrete, step-by-step approach to problem solving
+  (first understand the data, then act on it) — great for learning and demonstrating clarity of thought
+*/
+
+
 //Higher Order Function Example:
 function add(num1, num2) {
     return num1 + num2;
