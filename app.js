@@ -50,6 +50,64 @@ function twoSumAlt(nums, target) {
   (first understand the data, then act on it) — great for learning and demonstrating clarity of thought
 */
 
+// Definition for singly-linked list.
+class ListNode {
+  constructor(val = 0, next = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
+// 1) Core solution
+function addTwoNumbers(l1, l2) {
+  let dummy = new ListNode(0);
+  let current = dummy;
+  let carry = 0;
+
+  while (l1 !== null || l2 !== null || carry !== 0) {
+    const v1 = l1 ? l1.val : 0;
+    const v2 = l2 ? l2.val : 0;
+    const sum = v1 + v2 + carry;
+    carry = Math.floor(sum / 10);
+
+    current.next = new ListNode(sum % 10);
+    current = current.next;
+
+    if (l1) l1 = l1.next;
+    if (l2) l2 = l2.next;
+  }
+
+  return dummy.next;
+}
+
+// 2) Helper to create a linked list from an array
+function createList(arr) {
+  let dummy = new ListNode(0);
+  let current = dummy;
+  for (let x of arr) {
+    current.next = new ListNode(x);
+    current = current.next;
+  }
+  return dummy.next;
+}
+
+// 3) Helper to convert a linked list back to array (for easy viewing)
+function listToArray(node) {
+  const result = [];
+  while (node) {
+    result.push(node.val);
+    node = node.next;
+  }
+  return result;
+}
+
+// 4) Worked example
+const l1 = createList([2, 4, 3]);  // represents 342
+const l2 = createList([5, 6, 4]);  // represents 465
+
+const summed = addTwoNumbers(l1, l2);
+console.log(listToArray(summed));   // [7, 0, 8] → represents 807
+
 
 //Higher Order Function Example:
 function add(num1, num2) {
