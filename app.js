@@ -50,6 +50,7 @@ function twoSumAlt(nums, target) {
   (first understand the data, then act on it) — great for learning and demonstrating clarity of thought
 */
 
+/* Palindrome Stage 1 */
 const str = 'I did, did I?';
 
 const isPalindrome = (inStr) => {
