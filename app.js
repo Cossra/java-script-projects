@@ -50,6 +50,15 @@ function twoSumAlt(nums, target) {
   (first understand the data, then act on it) — great for learning and demonstrating clarity of thought
 */
 
+const str = 'I did, did I?';
+
+const isPalindrome = (inStr) => {
+    inStr = inStr.replace(/\W/g, '');
+    inStr = inStr.toLowerCase();
+
+    return inStr === inStr.split('').reverse('').join('');
+}
+
 // Definition for singly-linked list.
 class ListNode {
   constructor(val = 0, next = null) {
