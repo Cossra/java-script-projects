@@ -68,6 +68,20 @@ class ListNode {
   }
 }
 
+/* Palindrome */
+Input: x = 121
+Output: true
+Explanation: Reads the same forwards and backwards.
+
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-.
+
+Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left, which is not the same.
+
+
 // 1) Core solution
 function addTwoNumbers(l1, l2) {
   let dummy = new ListNode(0);
